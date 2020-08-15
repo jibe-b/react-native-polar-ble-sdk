@@ -31,6 +31,8 @@ project.xcworkspace
 # Android/IntelliJ
 #
 build/
+# copy polar android libs on build only (see build.gradle) :
+libs/ 
 .idea
 .gradle
 local.properties

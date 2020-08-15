@@ -12,7 +12,7 @@
 
 def DEFAULT_COMPILE_SDK_VERSION = 28
 def DEFAULT_BUILD_TOOLS_VERSION = '28.0.3'
-def DEFAULT_MIN_SDK_VERSION = 16
+def DEFAULT_MIN_SDK_VERSION = 21
 def DEFAULT_TARGET_SDK_VERSION = 28
 
 def safeExtGet(prop, fallback) {
@@ -70,9 +70,22 @@ repositories {
     jcenter()
 }
 
+task copySdk {
+    copy {
+        from("$projectDir/../polar-ble-sdk/polar-sdk-android/libs")
+        into("$projectDir/libs")
+        include '*.aar'
+    }
+}
+
+preBuild.dependsOn copySdk
 dependencies {
     //noinspection GradleDynamicVersion
     implementation 'com.facebook.react:react-native:+'  // From node_modules
+    implementation files('libs/polar-ble-sdk.aar')
+    implementation 'io.reactivex.rxjava3:rxjava:3.0.0'
+    implementation group: 'commons-io', name: 'commons-io', version: '2.4'
+    implementation 'io.reactivex.rxjava3:rxandroid:3.0.0'
 }
 
 def configureReactNativePom(def pom) {
@@ -82,7 +95,7 @@ def configureReactNativePom(def pom) {
         name packageJson.title
         artifactId packageJson.name
         version = packageJson.version
-        group = "com.reactlibrary"
+        group = "com.polarblesdk"
         description packageJson.description
         url packageJson.repository.baseUrl
 

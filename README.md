@@ -6,7 +6,10 @@
 
 ### Mostly automatic installation
 
-`$ react-native link react-native-polar-ble-sdk`
+```javascript
+// maybe not necessary anymore :
+$ react-native link react-native-polar-ble-sdk
+```
 
 ## Usage
 ```javascript

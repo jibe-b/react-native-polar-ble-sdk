@@ -16,17 +16,17 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/github_account/react-native-polar-ble-sdk.git",
-    "baseUrl": "https://github.com/github_account/react-native-polar-ble-sdk"
+    "url": "git+https://github.com/josephlarralde/react-native-polar-ble-sdk.git",
+    "baseUrl": "https://github.com/josephlarralde/react-native-polar-ble-sdk"
   },
   "keywords": [
     "react-native"
   ],
   "author": {
-    "name": "Your Name",
-    "email": "yourname@email.com"
+    "name": "Joseph Larralde",
+    "email": "joseph.larralde@gmail.com"
   },
-  "license": "MIT",
+  "license": "BSD-3-Clause",
   "licenseFilename": "LICENSE",
   "readmeFilename": "README.md",
   "peerDependencies": {
