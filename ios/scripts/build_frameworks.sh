@@ -1,5 +1,20 @@
 #!/usr/bin/env bash
 
+# only run this script if xcode version is > 11
+# see https://stackoverflow.com/questions/41451018/using-bash-to-get-the-second-word-of-the-first-line
+# and https://stackoverflow.com/questions/6245293/extract-version-number-from-file-in-shell-script
+
+version=$(xcodebuild -version | awk 'NR==1 {print $2}')
+parsed=( ${version//./ } )
+if [ "${parsed[0]}" -lt 12 ]
+then
+  echo "xcode version < 12, no compilation needed"
+  exit
+else
+  echo "xcode version >= 12, recompiling dependencies"
+  # exit
+fi
+
 # procedure found here :
 # https://github.com/polarofficial/polar-ble-sdk/issues/97#issuecomment-702174877
 
