@@ -12,6 +12,7 @@
     "react-native-polar-ble-sdk.podspec"
   ],
   "scripts": {
+    "preinstall": "./ios/scripts/build_frameworks.sh",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
@@ -26,7 +27,7 @@
     "name": "Joseph Larralde",
     "email": "joseph.larralde@gmail.com"
   },
-  "license": "BSD-3-Clause",
+  "license": "MIT",
   "licenseFilename": "LICENSE",
   "readmeFilename": "README.md",
   "peerDependencies": {

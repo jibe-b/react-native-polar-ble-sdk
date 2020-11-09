@@ -1,66 +1,44 @@
-// import { NativeModules } from 'react-native';
-// const { PolarBleSdk } = NativeModules;
-// export default PolarBleSdk;
+import { NativeModules } from 'react-native';
 
-"use strict";
-var React = require("react-native");
-var polarBleSdk = React.NativeModules.PolarBleSdk;
-// var polarEmitter = new React.NativeEventEmitter(polarBleSdk);
+const { PolarBleSdkModule } = NativeModules;
 
-//*
 class PolarBleSdk {
   constructor() {
-    // this.onConnectionStateChanged = this.onConnectionStateChanged.bind(this);
+    // todo ?
   }
 
-  // callback(content) {
-  //   console.log(`callback : ${content}`);
-  // }
-
   connectToDevice(deviceId) {
-    polarBleSdk.connectToDevice(deviceId);
+    PolarBleSdkModule.connectToDevice(deviceId);
   }
 
   disconnectFromDevice(deviceId) {
-    polarBleSdk.disconnectFromDevice(deviceId);
+    PolarBleSdkModule.disconnectFromDevice(deviceId);
   }
 
-
   startEcgStreaming() {
-  // streamECG() {
-    polarBleSdk.startEcgStreaming();
+    PolarBleSdkModule.startEcgStreaming();
   }
 
   startAccStreaming() {
-    polarBleSdk.startAccStreaming();    
+    PolarBleSdkModule.startAccStreaming();    
   }
 
   stopEcgStreaming() {
-  // streamECG() {
-    polarBleSdk.stopEcgStreaming();
+    PolarBleSdkModule.stopEcgStreaming();
   }
 
   stopAccStreaming() {
-    polarBleSdk.stopAccStreaming();    
+    PolarBleSdkModule.stopAccStreaming();    
   }
 
-  addListener(event, callback) {
-    // return polarEmitter.addListener(event, callback);
+  sampleMethod(number, string, callback) {
+    PolarBleSdkModule.sampleMethod(number, string, callback);
   }
 
-  // EVENT LISTENERS :
-
-  // onConnectionStateChanged(connectionState) {
-
+  // addListener(event, callback) {
+  //   // return polarEmitter.addListener(event, callback);
   // }
+}
 
-  // setListener(listener) {
-  //   polarBleSdk.setListener(listener);
-  // }
-
-  // printSomething() {
-  //   polarBleSdk.printSomething(this.callback);
-  // }
-};
-
-module.exports = new PolarBleSdk();
+export default new PolarBleSdk();
+// export default PolarBleSdkModule;
