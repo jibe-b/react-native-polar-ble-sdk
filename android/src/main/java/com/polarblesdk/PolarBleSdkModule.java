@@ -307,12 +307,20 @@ public class PolarBleSdkModule extends ReactContextBaseJavaModule {
                     );
 
             // streamCallback.invoke("ecg started");
-        } else {
-            // NOTE stops streaming if it is "running"
+        // } else {
+        //     // NOTE stops streaming if it is "running"
+        //     ecgDisposable.dispose();
+        //     ecgDisposable = null;
+        //     // streamCallback.invoke("ecg disposed");
+        }        
+    }
+
+    @ReactMethod
+    public void stopEcgStreaming() {
+        if (ecgDisposable != null) {
             ecgDisposable.dispose();
             ecgDisposable = null;
-            // streamCallback.invoke("ecg disposed");
-        }        
+        }
     }
 
     //*
@@ -361,13 +369,21 @@ public class PolarBleSdkModule extends ReactContextBaseJavaModule {
                             }
                     );
             // streamCallback.invoke("acc started");
-        } else {
-            accDisposable.dispose();
-            accDisposable = null;
-            // streamCallback.invoke("acc disposed");
+        // } else {
+        //     accDisposable.dispose();
+        //     accDisposable = null;
+        //     // streamCallback.invoke("acc disposed");
         }
     }
     //*/
+
+    @ReactMethod
+    public void stopAccStreaming() {
+        if (accDisposable != null) {
+            accDisposable.dispose();
+            accDisposable = null;
+        }
+    }
 
     @ReactMethod
     public void sampleMethod(String stringArgument, int numberArgument, Callback callback) {

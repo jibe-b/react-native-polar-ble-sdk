@@ -35,6 +35,15 @@ class PolarBleSdk {
     polarBleSdk.startAccStreaming();    
   }
 
+  stopEcgStreaming() {
+  // streamECG() {
+    polarBleSdk.stopEcgStreaming();
+  }
+
+  stopAccStreaming() {
+    polarBleSdk.stopAccStreaming();    
+  }
+
   addListener(event, callback) {
     // return polarEmitter.addListener(event, callback);
   }
