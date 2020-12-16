@@ -1,4 +1,4 @@
-import { NativeModules } from 'react-native';
+import { NativeModules, Platform } from 'react-native';
 
 const { PolarBleSdkModule } = NativeModules;
 
@@ -6,6 +6,8 @@ class PolarBleSdk {
   constructor() {
     // todo ?
   }
+
+  ////////// CONNECTION
 
   connectToDevice(deviceId) {
     PolarBleSdkModule.connectToDevice(deviceId);
@@ -15,21 +17,47 @@ class PolarBleSdk {
     PolarBleSdkModule.disconnectFromDevice(deviceId);
   }
 
-  startEcgStreaming() {
-    PolarBleSdkModule.startEcgStreaming();
+  ////////// ECG STREAMING
+
+  startEcgStreaming(deviceId) {
+    PolarBleSdkModule.startEcgStreaming(deviceId);
   }
 
-  startAccStreaming() {
-    PolarBleSdkModule.startAccStreaming();    
+  stopEcgStreaming(deviceId) {
+    PolarBleSdkModule.stopEcgStreaming(deviceId);
   }
 
-  stopEcgStreaming() {
-    PolarBleSdkModule.stopEcgStreaming();
+  ////////// ACCELEROMETER STREAMING
+
+  startAccStreaming(deviceId) {
+    PolarBleSdkModule.startAccStreaming(deviceId);    
   }
 
-  stopAccStreaming() {
-    PolarBleSdkModule.stopAccStreaming();    
+  stopAccStreaming(deviceId) {
+    PolarBleSdkModule.stopAccStreaming(deviceId);    
   }
+
+  ////////// PPG STREAMING
+
+  startPpgStreaming(deviceId) {
+    PolarBleSdkModule.startPpgStreaming(deviceId);    
+  }
+
+  stopPpgStreaming(deviceId) {
+    PolarBleSdkModule.stopPpgStreaming(deviceId);    
+  }
+
+  ////////// PPI STREAMING
+
+  startPpiStreaming(deviceId) {
+    PolarBleSdkModule.startPpiStreaming(deviceId);    
+  }
+
+  stopPpiStreaming(deviceId) {
+    PolarBleSdkModule.stopPpiStreaming(deviceId);    
+  }
+
+  ////////// OTHER
 
   sampleMethod(number, string, callback) {
     PolarBleSdkModule.sampleMethod(number, string, callback);
