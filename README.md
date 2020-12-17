@@ -71,31 +71,30 @@ polarEmitter.addListener('hrData', (data) => {
   } = data;
 });
 
-polarEmitter.addListener('ecgData', (data) => {
-  const { id, timeStamp, samples } = data;
-  const {
-
-  } = samples[0];
-});
-
 polarEmitter.addListener('accData', (data) => {
   const { id, timeStamp, samples } = data;
-  const {
+  const { x, y, z } = samples[0];
+});
 
-  } = samples[0];
+polarEmitter.addListener('ecgData', (data) => {
+  const { id, timeStamp, samples } = data;
+  const value = samples[0];
 });
 
 polarEmitter.addListener('ppgData', (data) => {
   const { id, timeStamp, samples } = data;
-  const {
-
-  } = samples[0];
+  const { ppg0, ppg1, ppg2, ambient } = samples[0];
 });
 
 polarEmitter.addListener('ppiData', (data) => {
   const { id, timeStamp, samples } = data;
   const {
-
+    hr,
+    ppInMs,
+    ppErrorEstimate,
+    blockerBit,
+    skinContactStatus,
+    skinContactSupported,
   } = samples[0];
 });
 
@@ -104,14 +103,15 @@ polarEmitter.addListener('ppiData', (data) => {
 // polar device's id also appearing in the advertised device name
 const id = '12345XYZ';
 
+// attempt to connect to device
 PolarBleSdk.connectToDevice(id);
 
 // now wait for the 'connectionState' event to be emitted with the right id
 // and a 'connected' state value, then wait for corresponding 'xxxFeatureReady'
 // event to be emitted with the right id before calling
 // PolarBleSdk.startXxxStreaming() to start receiving the data from event
-// 'xxxData' (except for hrData, which is emitted continuously as soon as
-// the device is connected)
+// 'xxxData' (except for hrData, which is emitted continuously by both H10 and
+// OH1 as soon as the device is connected)
 
 // will work with both H10 and OH1 devices
 PolarBleSdk.startAccStreaming()
@@ -127,6 +127,8 @@ PolarBleSdk.stopPpgStreaming();
 PolarBleSdk.startPpiStreaming();
 PolarBleSdk.stopPpiStreaming();
 
+// whenever you are done with the device you can disconnect it
+// (active streams will be stopped automatically)
 PolarBleSdk.disconnectFromDevice(id);
 ```
 
