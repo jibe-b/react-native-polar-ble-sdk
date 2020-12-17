@@ -1,5 +1,10 @@
 import { NativeModules, Platform } from 'react-native';
 
+// todo :
+// add an abstraction layer on top of this very rough api using a map of
+// device instances (see how it's done in OpenHealthBandReactNativeApp) and emit
+// events from them ? or KISS like this ?
+
 const { PolarBleSdkModule } = NativeModules;
 
 class PolarBleSdk {
