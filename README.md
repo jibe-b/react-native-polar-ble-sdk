@@ -1,12 +1,21 @@
 # react-native-polar-ble-sdk
 
+A React Native Wrapper for [Polar's BLE SDK](https://github.com/polarofficial/polar-ble-sdk)
+(NB : not all SDK functionalities are exposed yet)
+
 ## Getting started
+
+This should work :
 
 `$ npm install react-native-polar-ble-sdk --save`
 
-### Mostly automatic installation
+Though I only used this repo as a local git submodule at the moment
+
+This :
 
 `$ react-native link react-native-polar-ble-sdk`
+
+should not be necessary if you use React Native >= 0.60
 
 ## Usage
 
@@ -121,15 +130,12 @@ PolarBleSdk.stopPpiStreaming();
 PolarBleSdk.disconnectFromDevice(id);
 ```
 
-## ios issues
+## iOS issues
 
-Polar's ble sdk relies on Carthage as a dependency manager, and you will need to
-[install it](https://github.com/Carthage/Carthage#installing-carthage) as well
-in order to build this module.
-[This comment](https://github.com/polarofficial/polar-ble-sdk/issues/97#issuecomment-702174877)
-helped me to recompile RxSwift using the provided `carthage.sh` script
-(see `ios/resources` for a modified version), then I was able to build the
-PolaBleSdk framework using `build_sdk.sh`.
-After replacing the two new frameworks into `polar-sdk-ios` I was able to build
-the example project for iOS 13 using XCode 12.
+Polar's BLE sdk relies on Carthage as a dependency manager, and you will need to
+[install it](https://github.com/Carthage/Carthage#installing-carthage) in order
+to rebuild the sdk if you use XCode >= 12.
+The rebuild process is automated in `ios/scripts/build_frameworks.sh` which is
+executed in the npm preinstall hook, but you still need to provide your admin
+password manually at the end of the rebuild.
 
