@@ -132,8 +132,6 @@ class PolarBleSdkModule : RCTEventEmitter,
     * }
     */
 
-  }
-
   @objc func startEcgStreaming(_ id: String) -> Void {
     var d = devices[id]
     if d != nil && d!.ecgReady && d!.ecgToggle == nil {
@@ -310,7 +308,7 @@ class PolarBleSdkModule : RCTEventEmitter,
       numberArgument,
       stringArgument
     )
-    
+
     callback([NSNull(), res])
   }
 
