@@ -6,65 +6,14 @@
 RCT_EXTERN_METHOD(supportedEvents)
 RCT_EXTERN_METHOD(connectToDevice:(NSString *)deviceId)
 RCT_EXTERN_METHOD(disconnectFromDevice:(NSString *)deviceId)
-RCT_EXTERN_METHOD(startEcgStreaming)
-RCT_EXTERN_METHOD(startAccStreaming)
-RCT_EXTERN_METHOD(startPpgStreaming)
-RCT_EXTERN_METHOD(startPpiStreaming)
-RCT_EXTERN_METHOD(stopEcgStreaming)
-RCT_EXTERN_METHOD(stopAccStreaming)
-RCT_EXTERN_METHOD(stopPpgStreaming)
-RCT_EXTERN_METHOD(stopPpiStreaming)
+RCT_EXTERN_METHOD(startEcgStreaming:(NSString *)deviceId)
+RCT_EXTERN_METHOD(startAccStreaming:(NSString *)deviceId)
+RCT_EXTERN_METHOD(startPpgStreaming:(NSString *)deviceId)
+RCT_EXTERN_METHOD(startPpiStreaming:(NSString *)deviceId)
+RCT_EXTERN_METHOD(stopEcgStreaming:(NSString *)deviceId)
+RCT_EXTERN_METHOD(stopAccStreaming:(NSString *)deviceId)
+RCT_EXTERN_METHOD(stopPpgStreaming:(NSString *)deviceId)
+RCT_EXTERN_METHOD(stopPpiStreaming:(NSString *)deviceId)
 RCT_EXTERN_METHOD(sampleMethod:(NSString *)stringArgument numberArgument:(nonnull NSNumber *)numberArgument callback:(RCTResponseSenderBlock)callback)
 
 @end
-
-/*
-#import "PolarBleSdkModule.h"
-
-@implementation PolarBleSdkModule
-
-RCT_EXPORT_MODULE();
-
-- (NSArray<NSString *> *)supportedEvents
-{
-  return @[@"Disconnected", @"Connnecting", @"Connected"];
-}
-
-RCT_EXPORT_METHOD(connectToDevice:(NSString *)deviceId)
-{
-
-}
-
-RCT_EXPORT_METHOD(disconnectFromDevice:(NSString *)deviceId)
-{
-
-}
-
-RCT_EXPORT_METHOD(startEcgStreaming)
-{
-
-}
-
-RCT_EXPORT_METHOD(stopEcgStreaming)
-{
-  
-}
-
-RCT_EXPORT_METHOD(startAccStreaming)
-{
-
-}
-
-RCT_EXPORT_METHOD(stopAccStreaming)
-{
-  
-}
-
-RCT_EXPORT_METHOD(sampleMethod:(NSString *)stringArgument numberParameter:(nonnull NSNumber *)numberArgument callback:(RCTResponseSenderBlock)callback)
-{
-    // TODO: Implement some actually useful functionality
-    callback(@[[NSString stringWithFormat: @"numberArgument: %@ stringArgument: %@", numberArgument, stringArgument]]);
-}
-
-@end
-//*/
