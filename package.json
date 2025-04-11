@@ -8,11 +8,9 @@
     "README.md",
     "android",
     "index.js",
-    "ios",
     "react-native-polar-ble-sdk.podspec"
   ],
   "scripts": {
-    "preinstall": "./ios/scripts/build_frameworks.sh",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
